@@ -1,3 +1,4 @@
+<h1>Categories:</h1>
 @foreach ($categories as $category)
     <p>Name: {{ $category->name }}</p>
     <p>Description: {{ $category->description }}</p>

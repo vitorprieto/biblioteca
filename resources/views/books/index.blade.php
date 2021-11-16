@@ -1,3 +1,4 @@
+<h1>Books:</h1>
 @foreach ($books as $book)
     <p>Name: {{ $book->name }}</p>
     <p>Author: {{ $book->author }}</p>

@@ -1,3 +1,4 @@
+<h1>Book:</h1>
 <p>Name: {{ $book->name }}</p>
 <p>Author: {{ $book->author }}</p>
 <p>Publication Date: {{ $book->publication_date }}</p>
