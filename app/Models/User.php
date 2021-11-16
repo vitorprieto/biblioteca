@@ -58,4 +58,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    /**
+     * Get the borrowed books.
+     */
+    public function borrowed_books()
+    {
+        return $this->hasMany(BookInstance::class);
+    }
 }

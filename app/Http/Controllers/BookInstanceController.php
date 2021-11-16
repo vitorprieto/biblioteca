@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBookInstanceRequest;
-use App\Http\Requests\UpdateBookInstanceRequest;
 use App\Models\BookInstance;
+use App\Models\Book;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class BookInstanceController extends Controller
 {
@@ -15,7 +16,9 @@ class BookInstanceController extends Controller
      */
     public function index()
     {
-        //
+        $book_instances = BookInstance::all();
+
+        return view('bookinstances.index')->with('book_instances', $book_instances);
     }
 
     /**
@@ -25,18 +28,32 @@ class BookInstanceController extends Controller
      */
     public function create()
     {
-        //
+        $books = Book::all();
+        $users = User::all();
+
+        return view('bookinstances.create')->with([
+            'books' => $books, 
+            'users' => $users
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBookInstanceRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookInstanceRequest $request)
+    public function store(Request $request)
     {
-        //
+        $book_instance = new BookInstance;
+
+        $book_instance->due_back = $request->due_back;
+        $book_instance->is_available = $request->is_available;
+        $book_instance->book_id = $request->books;
+        $book_instance->borrower_id = $request->users;
+        $book_instance->save();
+
+        return redirect()->route('bookinstances.index');
     }
 
     /**
@@ -45,9 +62,11 @@ class BookInstanceController extends Controller
      * @param  \App\Models\BookInstance  $bookInstance
      * @return \Illuminate\Http\Response
      */
-    public function show(BookInstance $bookInstance)
+    public function show($id)
     {
-        //
+        $book_instance = BookInstance::findOrFail($id);
+
+        return view('bookinstances.show')->with('instance', $book_instance);
     }
 
     /**
@@ -56,21 +75,39 @@ class BookInstanceController extends Controller
      * @param  \App\Models\BookInstance  $bookInstance
      * @return \Illuminate\Http\Response
      */
-    public function edit(BookInstance $bookInstance)
+    public function edit($id)
     {
-        //
+        $book_instance = BookInstance::findOrFail($id);
+        $books = Book::all();
+        $users = User::all();
+        
+        return view('bookinstances.edit')->with(
+            [
+                'book_instance' => $book_instance,
+                'books' => $books,
+                'users' => $users
+            ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBookInstanceRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\BookInstance  $bookInstance
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookInstanceRequest $request, BookInstance $bookInstance)
+    public function update(Request $request, $id)
     {
-        //
+        $book_instance = BookInstance::findOrFail($id);
+        $request->validate([
+            'due_back' => 'required',
+            'is_available' => 'required',
+            'book_id' => 'required',
+            'borrower_id' => 'required'
+        ]);
+        $book_instance->update($request->all());
+
+        return redirect()->route('bookinstances.index');
     }
 
     /**
@@ -79,8 +116,11 @@ class BookInstanceController extends Controller
      * @param  \App\Models\BookInstance  $bookInstance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BookInstance $bookInstance)
+    public function destroy($id)
     {
-        //
+        $book_instance = BookInstance::findOrFail($id);
+        $book_instance->delete();
+
+        return redirect()->route('bookinstances.index');
     }
 }

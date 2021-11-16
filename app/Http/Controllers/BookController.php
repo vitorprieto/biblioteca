@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBookRequest;
-use App\Http\Requests\UpdateBookRequest;
 use App\Models\Book;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -15,7 +15,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::all();
+
+        return view('books.index')->with('books', $books);
     }
 
     /**
@@ -25,18 +27,28 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('books.create')->with('categories', $categories);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBookRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookRequest $request)
+    public function store(Request $request)
     {
-        //
+        $book = new Book;
+
+        $book->name = $request->name;
+        $book->author = $request->author;
+        $book->publication_date = $request->publication_date;
+        $book->category_id = $request->category;
+        $book->save();
+
+        return redirect()->route('books.index');
     }
 
     /**
@@ -45,9 +57,11 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($id)
     {
-        //
+        $book = Book::findOrFail($id);
+
+        return view('books.show')->with('book', $book);
     }
 
     /**
@@ -56,21 +70,37 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $categories = Category::all();
+        
+        return view('books.edit')->with(
+            [
+                'book' => $book,
+                'categories' => $categories
+            ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBookRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookRequest $request, Book $book)
+    public function update(Request $request, $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $request->validate([
+            'name' => 'required',
+            'author' => 'required',
+            'publication_date' => 'required',
+            'category_id' => 'required'
+        ]);
+        $book->update($request->all());
+
+        return redirect()->route('books.index');
     }
 
     /**
@@ -79,8 +109,11 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $book->delete();
+
+        return redirect()->route('books.index');
     }
 }
