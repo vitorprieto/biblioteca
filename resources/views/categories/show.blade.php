@@ -11,6 +11,11 @@
 </form>
 
 <h2>Books: </h2>
+
+@if (count($category->books) <=0)
+    <p>No records found</p>
+@endif
+
     @foreach ($category->books as $book)
     <p>Name: {{ $book->name }}</p>
     <p>Author: {{ $book->author }}</p>

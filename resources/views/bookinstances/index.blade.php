@@ -1,5 +1,9 @@
 <h1>Copies:</h1>
 
+@if (count($book_instances) <=0)
+    <p>No records found</p>
+@endif
+
 @foreach ($book_instances as $instance)
     <p>Book: {{ $instance->book->name }}</p>
     <p>Borrower: {{ $instance->borrower->name }}</p>
