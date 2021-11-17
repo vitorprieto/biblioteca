@@ -14,7 +14,10 @@ class BookInstanceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'due_back' => $this->faker->date($format = 'Y-m-d'),
+            'is_available' => $this->faker->boolean($chanceOfGettingTrue = 50),
+            'book_id' => 1,
+            'borrower_id' => 1,
         ];
     }
 }
