@@ -1,25 +1,57 @@
-<h1>Category:</h1>
-<p>Name: {{ $category->name }}</p>
-<p>Description: {{ $category->description }}</p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#categories {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-<a href="{{ url('categories/' . $category->id . '/edit') }}">Edit</a>
-<form action="{{ route('categories.destroy', ['category' => $category]) }}" method="POST">
-    @csrf
-    @method('DELETE')
+#categories td, #categories th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
 
-    <button type="submit">Delete</button>
-</form>
+#categories tr:nth-child(even){background-color: #f2f2f2;}
 
-<h2>Books: </h2>
+#categories tr:hover {background-color: #ddd;}
 
-@if (count($category->books) <=0)
-    <p>No records found</p>
-@endif
+#categories th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
 
-    @foreach ($category->books as $book)
-    <p>Name: {{ $book->name }}</p>
-    <p>Author: {{ $book->author }}</p>
-    <p>Publication Date: {{ $book->publication_date }}</p>
-    <p>Category: {{ $book->category->name }}</p>
-    <hr>
-    @endforeach
+<h1>Categories:</h1>
+
+<table id="categories">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr>
+    <td>{{ $category->name }}</td>
+    <td>{{ $category->description }}</td>
+
+    <td><a href="{{ url('categories/' . $category->id . '/edit') }}">Edit</a></td>
+    <td>
+    <form action="{{ route('categories.destroy', ['category' => $category]) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+      <button type="submit">Delete</button>
+    </form>
+    </td>
+    </tr>
+  </table>
+  
+</body>
+</html>
