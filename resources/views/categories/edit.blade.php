@@ -44,7 +44,7 @@ div {
       <input type="text" id="name" name="name" value='{{ $category->name }}'>
 
       <label for="name">Description</label>
-      <input type="text" id="author" name="author" value='{{ $category->description }}'>
+      <input type="text" id="description" name="description" value='{{ $category->description }}'>
     
       <input type="submit" value="Submit">
     </form>

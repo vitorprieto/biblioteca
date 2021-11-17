@@ -42,7 +42,7 @@ div {
       <input type="text" id="name" name="name" placeholder="Name..">
 
       <label for="name">Description</label>
-      <input type="text" id="author" name="author" placeholder="Author..">
+      <input type="text" id="description" name="description" placeholder="Author..">
     
       <input type="submit" value="Submit">
     </form>

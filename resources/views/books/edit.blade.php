@@ -49,7 +49,7 @@ div {
       <input type="date" id="publication_date" name="publication_date" value='{{ $book->publication_date }}'><br>
   
       <label for="category">Category ({{ $book->category->name }})</label>
-      <select id="category" name="category">
+      <select id="category" name="category_id">
         @foreach ($categories as $category)
             <option value={{ $category->id }}>{{ $category->name }}</option>
         @endforeach
