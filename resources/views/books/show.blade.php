@@ -30,28 +30,28 @@
 <h1>Book:</h1>
 <table id="books">
     <tr>
-        <th>Name</th>
-        <th>Author</th>
-        <th>Publication Date</th>
-        <th>Category</th>
-        <th>Edit</th>
-        <th>Delete</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Publication Date</th>
+      <th>Category</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
     <tr>
-    <td>{{ $book->name }}</td>
-    <td>{{ $book->author }}</td>
-    <td>{{ $book->publication_date }}</td>
-    <td>{{ $book->category->name }}</td>
+      <td>{{ $book->name }}</td>
+      <td>{{ $book->author }}</td>
+      <td>{{ $book->publication_date }}</td>
+      <td>{{ $book->category->name }}</td>
 
-    <td><a href="{{ url('books/' . $book->id . '/edit') }}">Edit</a></td>
-    <td>
-    <form action="{{ route('books.destroy', ['book' => $book]) }}" method="POST">
+      <td><a href="{{ url('books/' . $book->id . '/edit') }}">Edit</a></td>
+      <td>
+      <form action="{{ route('books.destroy', ['book' => $book]) }}" method="POST">
         @csrf
         @method('DELETE')
 
         <button type="submit">Delete</button>
-    </form>
-    </td>
+      </form>
+      </td>
     </tr>
 </table>
 

@@ -34,6 +34,7 @@ div {
 </style>
 <body>
 
+<h1>Create a new book</h1>
 <div>
     <form method="POST" action=" {{ route('books.store') }}">
     @csrf
@@ -55,7 +56,7 @@ div {
     
       <input type="submit" value="Submit">
     </form>
-  </div>
+</div>
 
 </body>
 </html>

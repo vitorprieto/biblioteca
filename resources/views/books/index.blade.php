@@ -49,10 +49,10 @@
     <td><a href="{{ url('books/' . $book->id . '/edit') }}">Edit</a></td>
     <td>
     <form action="{{ route('books.destroy', ['book' => $book]) }}" method="POST">
-        @csrf
-        @method('DELETE')
+      @csrf
+      @method('DELETE')
 
-        <button type="submit">Delete</button>
+      <button type="submit">Delete</button>
     </form>
     </td>
     </tr>

@@ -33,7 +33,7 @@ div {
 }
 </style>
 <body>
-
+<h1>Edit a book</h1>
 <div>
     <form method="POST" action=" {{ route('books.update', ['book' => $book]) }}">
     @csrf
