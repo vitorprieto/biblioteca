@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 
 class BookFactory extends Factory
 {
@@ -17,7 +18,7 @@ class BookFactory extends Factory
             'name' => $this->faker->sentence(),
             'author' => $this->faker->name(),
             'publication_date' => $this->faker->date($format = 'Y-m-d'),
-            'category_id' => 1,
+            'category_id' => Category::all()->random()->id,
         ];
     }
 }
