@@ -6,7 +6,7 @@ This repository represents my implementation for the Technical Test applied by M
 
 Clone the repository
 
-    git clone git@github.com:2Fac3R/laravel-library.git
+    git clone https://github.com/2Fac3R/laravel-library.git
 
 Switch to the repo folder
 
