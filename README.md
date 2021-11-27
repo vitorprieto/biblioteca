@@ -16,9 +16,11 @@ Install all the dependencies using composer
 
     composer install
 
-For this specific test project I decided to delete '.gitignore' file to upload all the files, so you don't have to change config files.
+Rename ".env.example" to ".env" to use SQLite database.
 
-You can use the database.sqlite file I uploaded or migrate and seed the database with new data.
+Create database.sql file
+
+    touch database/database.sqlite
 
 Run the database migrations
 
