@@ -16,7 +16,7 @@ Install all the dependencies using composer
 
     composer install
 
-Rename ".env.example" to ".env" to use SQLite database.
+Rename ".env.example" to ".env".
 
 Create database.sql file
 
@@ -58,10 +58,12 @@ You can access to the following resources routes
 Create a new Book
 
     http://localhost:8000/books/create
+
 Get a resource
 
     http://localhost:8000/books/{id}
- Edit a resource
+
+Edit a resource
  
     http://localhost:8000/books/{id}/edit
 
@@ -70,7 +72,7 @@ All resources work the same, you can try using categories for example.
 
 I decided to use the following dependencies:
 
-* [ Jetstream](https://jetstream.laravel.com/2.x/introduction.html) It's a beautifully designed application starter kit for Laravel.
+* [Jetstream](https://jetstream.laravel.com/2.x/introduction.html) It's a beautifully designed application starter kit for Laravel.
 * [Livewire](https://laravel-livewire.com/) It's a full-stack framework for Laravel that makes building dynamic interfaces simple, without leaving the comfort of Laravel.
 
 You can see all dependencies in the "composer.json" file.
