@@ -46,7 +46,7 @@
                         <td>{{ $instance->borrower->name}}</td>
                         <td>{{ $instance->due_back }}</td>
                         <td>
-                            <input type="checkbox" {{ $instance->is_available ? 'checked' : '' }}>
+                            @livewire('update-availability', ['instance' => $instance])
                         </td>
 
                         <td><a href="{{ url('bookinstances/' . $instance->id . '/edit') }}">Edit</a></td>
