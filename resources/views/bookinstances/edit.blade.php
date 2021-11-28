@@ -45,16 +45,22 @@
                         @csrf
                         @method('PATCH')
 
-                        <label for="books">Books ({{ $book_instance->book->name }})</label>
+                        <label for="books">Books</label>
                         <select id="books" name="books">
                             @foreach ($books as $book)
+                                @if ($book_instance->book->id == $book->id)
+                                    <option value={{ $book->id }} selected>{{ $book->name}}</option>
+                                @endif
                                 <option value={{ $book->id }}>{{ $book->name }}</option>
                             @endforeach
                         </select>
 
-                        <label for="users">Borrower ({{ $book_instance->borrower->name }})</label>
+                        <label for="users">Borrower</label>
                         <select id="users" name="users">
                             @foreach ($users as $user)
+                                @if ($book_instance->borrower->id == $user->id)
+                                    <option value={{ $user->id }} selected>{{ $user->name }}</option>
+                                @endif
                                 <option value={{ $user->id }}>{{ $user->name }}</option>
                             @endforeach
                         </select>

@@ -53,9 +53,12 @@
                     <label for="name">Publication Date</label>
                     <input type="date" id="publication_date" name="publication_date" value='{{ $book->publication_date }}'><br>
                 
-                    <label for="category">Category ({{ $book->category->name }})</label>
+                    <label for="category">Category</label>
                     <select id="category" name="category_id">
                         @foreach ($categories as $category)
+                            @if ($book->category->id == $category->id)
+                                <option value={{ $category->id }} selected>{{ $category->name}}</option>
+                            @endif
                             <option value={{ $category->id }}>{{ $category->name }}</option>
                         @endforeach
                     </select>
