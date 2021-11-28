@@ -61,7 +61,7 @@
 
                         <input type="hidden" name="is_available" value="0">
                         <label for="name">Availability</label>
-                        <input type="checkbox" id="is_available" name="is_available" value="1" checked> <br>
+                        <input type="checkbox" id="is_available" name="is_available" {{ $book_instance->is_available ? 'checked' : '' }}> <br>
 
                         <label for="name">Due Back Date:</label>
                         <input type="date" id="due_back" name="due_back" value='{{ $book_instance->due_back }}'> <br>

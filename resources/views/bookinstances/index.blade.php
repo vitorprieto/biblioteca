@@ -51,7 +51,9 @@
                         <td>{{ $instance->book->name }}</td>
                         <td>{{ $instance->borrower->name}}</td>
                         <td>{{ $instance->due_back }}</td>
-                        <td>{{ $instance->is_available ? 'Available' : 'Not Available' }}</td>
+                        <td>
+                            <input type="checkbox" {{ $instance->is_available ? 'checked' : '' }}>
+                        </td>
 
                         <td><a href="{{ url('bookinstances/' . $instance->id . '/edit') }}">Edit</a></td>
                         <td>
