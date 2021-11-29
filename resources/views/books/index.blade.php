@@ -61,6 +61,7 @@
                     @endforeach
                 </table>
             </div>
+            {{ $books->links() }}
         </div>
     </div>
 </x-app-layout>

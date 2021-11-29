@@ -59,6 +59,7 @@
                     @endforeach
                 </table>
             </div>
+            {{ $categories->links() }}
         </div>
     </div>
 </x-app-layout>

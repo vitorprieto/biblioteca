@@ -24,7 +24,7 @@ class BookInstanceController extends Controller
      */
     public function index()
     {
-        $book_instances = BookInstance::all();
+        $book_instances = BookInstance::paginate(10);
 
         return view('bookinstances.index')->with('book_instances', $book_instances);
     }
