@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -76,7 +76,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = category::findOrFail($id);
-        
+
         return view('categories.edit')->with('category', $category);
     }
 

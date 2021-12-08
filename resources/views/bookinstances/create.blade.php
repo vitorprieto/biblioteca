@@ -4,7 +4,8 @@
             {{ __('Create a new book copy') }}
         </h2>
         <style>
-            input[type=text], select {
+            input[type=text],
+            select {
                 width: 100%;
                 padding: 12px 20px;
                 margin: 8px 0;
@@ -34,6 +35,7 @@
                 background-color: #f2f2f2;
                 padding: 20px;
             }
+
         </style>
     </x-slot>
 
@@ -42,7 +44,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="create">
                     <form method="POST" action=" {{ route('bookinstances.store') }}">
-                    @csrf
+                        @csrf
 
                         <label for="books">Books</label>
                         <select id="books" name="books">

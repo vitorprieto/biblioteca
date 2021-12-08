@@ -40,7 +40,7 @@ class BookInstanceController extends Controller
         $users = User::all();
 
         return view('bookinstances.create')->with([
-            'books' => $books, 
+            'books' => $books,
             'users' => $users
         ]);
     }
@@ -88,13 +88,14 @@ class BookInstanceController extends Controller
         $book_instance = BookInstance::findOrFail($id);
         $books = Book::all();
         $users = User::all();
-        
+
         return view('bookinstances.edit')->with(
             [
                 'book_instance' => $book_instance,
                 'books' => $books,
                 'users' => $users
-            ]);
+            ]
+        );
     }
 
     /**

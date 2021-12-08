@@ -10,14 +10,19 @@
                 width: 100%;
             }
 
-            #books td, #books th {
+            #books td,
+            #books th {
                 border: 1px solid #ddd;
                 padding: 8px;
             }
 
-            #books tr:nth-child(even){background-color: #f2f2f2;}
+            #books tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
 
-            #books tr:hover {background-color: #ddd;}
+            #books tr:hover {
+                background-color: #ddd;
+            }
 
             #books th {
                 padding-top: 12px;
@@ -26,9 +31,10 @@
                 background-color: #04AA6D;
                 color: white;
             }
+
         </style>
     </x-slot>
-    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -43,7 +49,7 @@
                     </tr>
                     <tr>
                         <td>{{ $instance->book->name }}</td>
-                        <td>{{ $instance->borrower->name}}</td>
+                        <td>{{ $instance->borrower->name }}</td>
                         <td>{{ $instance->due_back }}</td>
                         <td>
                             @livewire('update-availability', ['instance' => $instance])
@@ -51,12 +57,13 @@
 
                         <td><a href="{{ url('bookinstances/' . $instance->id . '/edit') }}">Edit</a></td>
                         <td>
-                        <form action="{{ route('bookinstances.destroy', ['bookinstance' => $instance]) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
+                            <form action="{{ route('bookinstances.destroy', ['bookinstance' => $instance]) }}"
+                                method="POST">
+                                @csrf
+                                @method('DELETE')
 
-                            <button type="submit">Delete</button>
-                        </form>
+                                <button type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 </table>

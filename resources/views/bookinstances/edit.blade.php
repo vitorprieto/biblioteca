@@ -4,7 +4,8 @@
             {{ __('Edit a book copy') }}
         </h2>
         <style>
-            input[type=text], select {
+            input[type=text],
+            select {
                 width: 100%;
                 padding: 12px 20px;
                 margin: 8px 0;
@@ -34,6 +35,7 @@
                 background-color: #f2f2f2;
                 padding: 20px;
             }
+
         </style>
     </x-slot>
 
@@ -41,7 +43,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="edit">
-                    <form method="POST" action="{{ route('bookinstances.update', ['bookinstance' => $book_instance]) }}">
+                    <form method="POST"
+                        action="{{ route('bookinstances.update', ['bookinstance' => $book_instance]) }}">
                         @csrf
                         @method('PATCH')
 
@@ -49,7 +52,7 @@
                         <select id="books" name="books">
                             @foreach ($books as $book)
                                 @if ($book_instance->book->id == $book->id)
-                                    <option value={{ $book->id }} selected>{{ $book->name}}</option>
+                                    <option value={{ $book->id }} selected>{{ $book->name }}</option>
                                 @endif
                                 <option value={{ $book->id }}>{{ $book->name }}</option>
                             @endforeach
@@ -67,7 +70,8 @@
 
                         <input type="hidden" name="is_available" value="0">
                         <label for="name">Availability</label>
-                        <input type="checkbox" id="is_available" name="is_available" {{ $book_instance->is_available ? 'checked' : '' }}> <br>
+                        <input type="checkbox" id="is_available" name="is_available"
+                            {{ $book_instance->is_available ? 'checked' : '' }}> <br>
 
                         <label for="name">Due Back Date:</label>
                         <input type="date" id="due_back" name="due_back" value='{{ $book_instance->due_back }}'> <br>

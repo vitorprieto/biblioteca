@@ -23,8 +23,8 @@ class UpdateAvailability extends Component
      */
     public function changeAvailability($id, $status)
     {
-        $status = ($status == 0) ? 1 : 0 ;
-        
+        $status = ($status == 0) ? 1 : 0;
+
         $book_instance = BookInstance::findOrFail($id);
         $book_instance->is_available = $status;
         $book_instance->save();

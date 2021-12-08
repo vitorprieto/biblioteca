@@ -82,12 +82,13 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
         $categories = Category::all();
-        
+
         return view('books.edit')->with(
             [
                 'book' => $book,
                 'categories' => $categories
-            ]);
+            ]
+        );
     }
 
     /**

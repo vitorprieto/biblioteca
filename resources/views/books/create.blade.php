@@ -4,7 +4,8 @@
             {{ __('Create a new book') }}
         </h2>
         <style>
-            input[type=text], select {
+            input[type=text],
+            select {
                 width: 100%;
                 padding: 12px 20px;
                 margin: 8px 0;
@@ -33,7 +34,8 @@
                 border-radius: 5px;
                 background-color: #f2f2f2;
                 padding: 20px;
-        }
+            }
+
         </style>
     </x-slot>
 
@@ -42,24 +44,24 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="create">
                     <form method="POST" action=" {{ route('books.store') }}">
-                    @csrf
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Name..">
+                        @csrf
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Name..">
 
-                    <label for="name">Author</label>
-                    <input type="text" id="author" name="author" placeholder="Author..">
+                        <label for="name">Author</label>
+                        <input type="text" id="author" name="author" placeholder="Author..">
 
-                    <label for="name">Publication Date</label>
-                    <input type="date" id="publication_date" name="publication_date"><br>
-                
-                    <label for="category">Category</label>
-                    <select id="category" name="category">
-                        @foreach ($categories as $category)
-                            <option value={{ $category->id }}>{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                    
-                    <input type="submit" value="Submit">
+                        <label for="name">Publication Date</label>
+                        <input type="date" id="publication_date" name="publication_date"><br>
+
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            @foreach ($categories as $category)
+                                <option value={{ $category->id }}>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+
+                        <input type="submit" value="Submit">
                     </form>
                 </div>
             </div>

@@ -10,14 +10,19 @@
                 width: 100%;
             }
 
-            #books td, #books th {
+            #books td,
+            #books th {
                 border: 1px solid #ddd;
                 padding: 8px;
             }
 
-            #books tr:nth-child(even){background-color: #f2f2f2;}
+            #books tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
 
-            #books tr:hover {background-color: #ddd;}
+            #books tr:hover {
+                background-color: #ddd;
+            }
 
             #books th {
                 padding-top: 12px;
@@ -26,6 +31,7 @@
                 background-color: #04AA6D;
                 color: white;
             }
+
         </style>
     </x-slot>
 
@@ -42,22 +48,22 @@
                         <th>Delete</th>
                     </tr>
                     @foreach ($books as $book)
-                    <tr>
-                        <td>{{ $book->name }}</td>
-                        <td>{{ $book->author }}</td>
-                        <td>{{ $book->publication_date }}</td>
-                        <td>{{ $book->category->name }}</td>
+                        <tr>
+                            <td>{{ $book->name }}</td>
+                            <td>{{ $book->author }}</td>
+                            <td>{{ $book->publication_date }}</td>
+                            <td>{{ $book->category->name }}</td>
 
-                        <td><a href="{{ url('books/' . $book->id . '/edit') }}">Edit</a></td>
-                        <td>
-                        <form action="{{ route('books.destroy', ['book' => $book]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
+                            <td><a href="{{ url('books/' . $book->id . '/edit') }}">Edit</a></td>
+                            <td>
+                                <form action="{{ route('books.destroy', ['book' => $book]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
 
-                        <button type="submit">Delete</button>
-                        </form>
-                        </td>
-                    </tr>
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
                 </table>
             </div>
