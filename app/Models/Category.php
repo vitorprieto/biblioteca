@@ -11,6 +11,11 @@ class Category extends Model
 
     protected $fillable = ['name', 'description'];
 
+    public function getNameAttribute($name)
+    {
+        return ucfirst($name);
+    }
+
     /**
      * Get the books
      */
