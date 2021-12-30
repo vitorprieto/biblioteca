@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
     /**
-     * Only logged in users can have access 
+     * Only logged in users can have access
      */
     public function __construct()
     {
@@ -65,10 +65,8 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        $book = Book::findOrFail($id);
-
         return view('books.show')->with('book', $book);
     }
 
@@ -78,9 +76,8 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        $book = Book::findOrFail($id);
         $categories = Category::all();
 
         return view('books.edit')->with(
@@ -98,9 +95,8 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
-        $book = Book::findOrFail($id);
         $request->validate([
             'name' => 'required',
             'author' => 'required',
@@ -118,9 +114,8 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        $book = Book::findOrFail($id);
         $book->delete();
 
         return redirect()->route('books.index');

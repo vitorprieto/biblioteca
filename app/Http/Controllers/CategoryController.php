@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
-     * Only logged in users can have access 
+     * Only logged in users can have access
      */
     public function __construct()
     {
@@ -60,10 +60,8 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        $category = category::findOrFail($id);
-
         return view('categories.show')->with('category', $category);
     }
 
@@ -73,10 +71,8 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        $category = category::findOrFail($id);
-
         return view('categories.edit')->with('category', $category);
     }
 
@@ -87,9 +83,8 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        $category = Category::findOrFail($id);
         $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -105,9 +100,8 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        $category = Category::findOrFail($id);
         $category->delete();
 
         return redirect()->route('categories.index');
