@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class BookInstanceController extends Controller
 {
     /**
-     * Only logged in users can have access 
+     * Only logged in users can have access
      */
     public function __construct()
     {
@@ -24,7 +24,7 @@ class BookInstanceController extends Controller
      */
     public function index()
     {
-        $book_instances = BookInstance::paginate(10);
+        $book_instances = BookInstance::paginate(15);
 
         return view('bookinstances.index')->with('book_instances', $book_instances);
     }
