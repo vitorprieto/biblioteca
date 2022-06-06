@@ -26,7 +26,10 @@ class BookInstanceController extends Controller
     {
         $book_instances = BookInstance::paginate(15);
 
-        return view('bookinstances.index')->with('book_instances', $book_instances);
+        return view('bookinstances.index')->with(
+            'book_instances',
+            $book_instances
+        );
     }
 
     /**
@@ -41,7 +44,7 @@ class BookInstanceController extends Controller
 
         return view('bookinstances.create')->with([
             'books' => $books,
-            'users' => $users
+            'users' => $users,
         ]);
     }
 
@@ -53,7 +56,7 @@ class BookInstanceController extends Controller
      */
     public function store(Request $request)
     {
-        $book_instance = new BookInstance;
+        $book_instance = new BookInstance();
 
         $book_instance->due_back = $request->due_back;
         $book_instance->is_available = $request->is_available;
@@ -89,13 +92,11 @@ class BookInstanceController extends Controller
         $books = Book::all();
         $users = User::all();
 
-        return view('bookinstances.edit')->with(
-            [
-                'book_instance' => $book_instance,
-                'books' => $books,
-                'users' => $users
-            ]
-        );
+        return view('bookinstances.edit')->with([
+            'book_instance' => $book_instance,
+            'books' => $books,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -112,7 +113,7 @@ class BookInstanceController extends Controller
             'due_back' => 'required',
             'is_available' => 'required',
             'book_id' => 'required',
-            'borrower_id' => 'required'
+            'borrower_id' => 'required',
         ]);
         $book_instance->update($request->all());
 

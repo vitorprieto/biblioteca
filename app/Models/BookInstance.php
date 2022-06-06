@@ -9,7 +9,12 @@ class BookInstance extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['due_back', 'is_available', 'book_id', 'borrower_id'];
+    protected $fillable = [
+        'due_back',
+        'is_available',
+        'book_id',
+        'borrower_id',
+    ];
 
     /**
      * Get the Book.
