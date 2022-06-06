@@ -1,5 +1,4 @@
-<div>
-
+<div class='update-availability'>
     <x-jet-confirmation-modal wire:model="confirmChange">
         <x-slot name="title">
             Change Availability

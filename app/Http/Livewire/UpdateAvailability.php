@@ -7,7 +7,7 @@ use App\Models\BookInstance;
 
 class UpdateAvailability extends Component
 {
-    public BookInstance $book_instance;
+    public $book_instance;
     public $instance;
     public $confirmChange = false;
 
