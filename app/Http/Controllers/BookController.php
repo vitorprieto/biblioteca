@@ -48,7 +48,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $book = new Book;
+        $book = new Book();
 
         $book->name = $request->name;
         $book->author = $request->author;
@@ -80,12 +80,10 @@ class BookController extends Controller
     {
         $categories = Category::all();
 
-        return view('books.edit')->with(
-            [
-                'book' => $book,
-                'categories' => $categories
-            ]
-        );
+        return view('books.edit')->with([
+            'book' => $book,
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -101,7 +99,7 @@ class BookController extends Controller
             'name' => 'required',
             'author' => 'required',
             'publication_date' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
         ]);
         $book->update($request->all());
 
