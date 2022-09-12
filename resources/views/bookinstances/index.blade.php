@@ -38,19 +38,20 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
 
-                @if (count($book_instances) <= 0) <p>No records found</p>
-                    @endif
+                @if (count($book_instances) <= 0)
+                    <p>No records found</p>
+                @endif
 
-                    <table id="books">
-                        <tr>
-                            <th>Book</th>
-                            <th>Borrower</th>
-                            <th>Due Back Date</th>
-                            <th>Availability</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                        @foreach ($book_instances as $instance)
+                <table id="books">
+                    <tr>
+                        <th>Book</th>
+                        <th>Borrower</th>
+                        <th>Due Back Date</th>
+                        <th>Availability</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    @foreach ($book_instances as $instance)
                         <tr>
                             <td>{{ $instance->book->name }}</td>
                             <td>{{ $instance->borrower->name }}</td>
@@ -70,8 +71,8 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
-                    </table>
+                    @endforeach
+                </table>
             </div>
             {{ $book_instances->links() }}
         </div>

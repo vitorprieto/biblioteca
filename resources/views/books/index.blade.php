@@ -14,8 +14,10 @@
                         <tr>
                             <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Name</th>
                             <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Author</th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Publication Date</th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Category</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Publication
+                                Date</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Category
+                            </th>
                             <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Edit</th>
                             <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Delete</th>
                         </tr>
@@ -23,10 +25,14 @@
                     <tbody>
                         @foreach ($books as $book)
                             <tr class="transition duration-300 ease-in-out bg-white border-b hover:bg-gray-100">
-                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{ $book->name }}</td>
-                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{ $book->author }}</td>
-                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{ $book->publication_date }}</td>
-                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{ $book->category->name }}</td>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                    {{ $book->name }}</td>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                    {{ $book->author }}</td>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                    {{ $book->publication_date }}</td>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                    {{ $book->category->name }}</td>
 
                                 <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                     <a href="{{ url('books/' . $book->id . '/edit') }}">Edit</a>

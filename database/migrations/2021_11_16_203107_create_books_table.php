@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateBooksTable extends Migration
 {
@@ -23,7 +23,11 @@ class CreateBooksTable extends Migration
 
             $table->foreignId('category_id');
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table
+                ->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
         });
     }
 

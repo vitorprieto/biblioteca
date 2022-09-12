@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateBookInstancesTable extends Migration
 {
@@ -23,8 +23,16 @@ class CreateBookInstancesTable extends Migration
             $table->foreignId('book_id');
             $table->foreignId('borrower_id');
 
-            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
-            $table->foreign('borrower_id')->references('id')->on('users')->onDelete('cascade');
+            $table
+                ->foreign('book_id')
+                ->references('id')
+                ->on('books')
+                ->onDelete('cascade');
+            $table
+                ->foreign('borrower_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

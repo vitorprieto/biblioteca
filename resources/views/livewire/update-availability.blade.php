@@ -15,7 +15,7 @@
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ml-2"
-                wire:click="changeAvailability({{ $instance->id }}, {{ $instance->is_available }})"
+                wire:click="changeAvailability({{ $instance }}, {{ $instance->is_available }})"
                 wire:loading.attr="disabled">
                 Change
             </x-jet-danger-button>

@@ -21,12 +21,9 @@ class UpdateAvailability extends Component
      * If status is 0 (Not Available) changes to 1 (Available)
      * and viceversa.
      */
-    public function changeAvailability($id, $status)
+    public function changeAvailability(BookInstance $book_instance, $status)
     {
-        $status = !$status;
-
-        $book_instance = BookInstance::findOrFail($id);
-        $book_instance->is_available = $status;
+        $book_instance->is_available = !$status;
         $book_instance->save();
 
         $this->confirmChange = false;

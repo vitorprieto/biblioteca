@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
             {{ __('Edit a book copy') }}
         </h2>
         <style>
@@ -35,16 +35,14 @@
                 background-color: #f2f2f2;
                 padding: 20px;
             }
-
         </style>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <div class="edit">
-                    <form method="POST"
-                        action="{{ route('bookinstances.update', ['bookinstance' => $book_instance]) }}">
+                    <form method="POST" action="{{ route('bookinstances.update', ['bookinstance' => $book_instance]) }}">
                         @csrf
                         @method('PATCH')
 
@@ -74,7 +72,8 @@
                             {{ $book_instance->is_available ? 'checked' : '' }}> <br>
 
                         <label for="name">Due Back Date:</label>
-                        <input type="date" id="due_back" name="due_back" value='{{ $book_instance->due_back }}'> <br>
+                        <input type="date" id="due_back" name="due_back" value='{{ $book_instance->due_back }}'>
+                        <br>
 
                         <input type="submit" value="Submit">
                     </form>
