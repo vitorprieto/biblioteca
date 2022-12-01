@@ -106,9 +106,8 @@ class BookInstanceController extends Controller
      * @param  \App\Models\BookInstance  $bookInstance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, BookInstance $bookInstance)
     {
-        $book_instance = BookInstance::findOrFail($id);
         $request->validate([
             'due_back' => 'required',
             'is_available' => 'required',
