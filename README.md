@@ -1,94 +1,95 @@
 # Laravel Library
 
-This project embodies a library for managing books, including functionalities for handling categories, books, and user interactions such as book borrowing (book instances).
+Este projeto incorpora uma biblioteca para gerenciamento de livros, incluindo funcionalidades para manipulação de categorias, livros e interações do usuário, como empréstimo de livros (instâncias de livros).
 
-It is developed with the following stack:
+É desenvolvido com as seguintes stack:
 
 * PHP (7.4) + Laravel (8)
 * Livewire: full-stack framework for Laravel
 * HTML (Blade Templates) + CSS (TailwindCSS Framework)
 
-## Installation
+## Intalação
 
-Clone the repository
+Clona o repository
 
     git clone https://github.com/2Fac3R/laravel-library.git
 
-Switch to the repo folder
+Mude para a pasta repo
 
     cd laravel-library
 
-Install all the dependencies using composer
+Instale todas as dependências usando o compositor
 
     composer install
+	
+Se acontecer erro ao instalar faz o update de projeto
 
-Rename ".env.example" to ".env" and add your database settings.
+	composer update
+
+Renomear o arquivo ".env.example" para ".env" and adiciona os parâmetros do seu database.
     
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=<your-database>
-    DB_USERNAME=<your-username>
-    DB_PASSWORD=<your-password>
+    DB_DATABASE=<database>
+    DB_USERNAME=<username>
+    DB_PASSWORD=<password>
 
-Run the database migrations
+Execute as migrações de banco de dados
 
     php artisan migrate
 
-Run the database seeder, this will create 10 users, 10 categories, 30 books and 50 book instances.
+Execute o semeador de banco de dados, isso criará 10 usuários, 10 categorias, 30 books e 50 book instances.
 
     php artisan db:seed
 
-Start the local development server
+Inicie os servidores de desenvolvimento local
 
     php artisan serve
 
-## Usage
+## Uso
 
-Log in or create a new user
+Faça login ou crie um novo usuário
 
     http://127.0.0.1:8000/dashboard
     http://127.0.0.1:8000/register
     http://127.0.0.1:8000/login
     
-You can access to the following resources routes
+Você pode acessar as seguintes rotas de recursos
 
     http://127.0.0.1:8000/categories
     http://127.0.0.1:8000/books
     http://127.0.0.1:8000/bookinstances
 
-Create a new Book
+Crie um novo livro
 
     http://127.0.0.1:8000/books/create
 
-Get a book and its book instances
+Obtenha um livro e suas instâncias de livro
 
     http://127.0.0.1:8000/books/{id}
 
-Edit a book
+Editar um livro
  
     http://127.0.0.1:8000/books/{id}/edit
 
-All resources work similar, you can try using categories for example.
+Todos os recursos funcionam de forma semelhante, você pode tentar usar categorias, por exemplo.
 
-This way you get the requested category and all the books inside that category.
+Desta forma você obtém a categoria solicitada e todos os livros dessa categoria.
 
     http://127.0.0.1:8000/categories/{id}/
     http://127.0.0.1:8000/categories/{id}/edit
 
-## Description
+## Descrição
 
-I decided to use the following dependencies:
+Decidi usar as seguintes dependências:
 
-* [Jetstream](https://jetstream.laravel.com/2.x/introduction.html) It's a beautifully designed application starter kit for Laravel.
-* [Livewire](https://laravel-livewire.com/) It's a full-stack framework for Laravel that makes building dynamic interfaces simple, without leaving the comfort of Laravel.
+* [Jetstream](https://jetstream.laravel.com/2.x/introduction.html) É um kit inicial de aplicativos lindamente projetado para Laravel.
+* [Livewire](https://laravel-livewire.com/) É um framework full-stack para Laravel que simplifica a construção de interfaces dinâmicas, sem sair do conforto do Laravel.
 
-You can see all dependencies in the "composer.json" file.
+Você pode ver todas as dependências no arquivo "composer.json".
 
-## Note
-Upon reviewing the code, you'll notice distinct table designs being employed. This deliberate choice should be taken into account when running the app.
+## Observação
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Ao revisar o código, você notará designs de tabelas distintos sendo empregados. Esta escolha deliberada deve ser levada em consideração ao executar o aplicativo.
 
-Any feedback is appreciated.
