@@ -31,17 +31,23 @@ Renomear o arquivo ".env.example" para ".env" and adiciona os parâmetros do seu
     DB_USERNAME=<username>
     DB_PASSWORD=<password>
 
-Execute as migrações de banco de dados
+Execute as migrações de banco de dados.
 
     php artisan migrate
 
-Execute o semeador de banco de dados, isso criará 10 usuários, 10 categorias, 30 books e 50 book instances.
+Execute o semeador de banco de dados, isso criará 10 usuários, 10 categorias, 30 livros e 50 instâncias de livro.
 
     php artisan db:seed
 
-Inicie os servidores de desenvolvimento local
+Inicie os servidores de desenvolvimento local.
 
     php artisan serve
+	
+## Teste Unitário
+
+Inicie o teste unitário para verificação da qualidade de cobertura do código.
+
+	php artisan test
 
 ## Uso
 
