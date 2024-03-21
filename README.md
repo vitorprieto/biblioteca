@@ -1,4 +1,4 @@
-# Laravel Library
+# Biblioteca Laravel
 
 Este projeto incorpora uma biblioteca para gerenciamento de livros, incluindo funcionalidades para manipulação de categorias, livros e interações do usuário, como empréstimo de livros (instâncias de livros).
 
@@ -12,17 +12,13 @@ Este projeto incorpora uma biblioteca para gerenciamento de livros, incluindo fu
 
 Clona o repository
 
-    git clone https://github.com/2Fac3R/laravel-library.git
-
-Mude para a pasta repo
-
-    cd laravel-library
+    git clone https://github.com/vitorprieto/biblioteca.git
 
 Instale todas as dependências usando o compositor
 
     composer install
 	
-Se acontecer erro ao instalar faz o update de projeto
+Se acontecer erro ao instalar faz o update do composer do projeto
 
 	composer update
 

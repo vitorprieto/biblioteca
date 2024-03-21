@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Category') }}
+            {{ __('Categoria') }}
         </h2>
         <style>
             #categories {
@@ -39,22 +39,22 @@
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <table id="categories">
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
                     <tr>
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->description }}</td>
 
-                        <td><a href="{{ url('categories/' . $category->id . '/edit') }}">Edit</a></td>
+                        <td><a href="{{ url('categories/' . $category->id . '/edit') }}">Editar</a></td>
                         <td>
                             <form action="{{ route('categories.destroy', ['category' => $category]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit">Delete</button>
+                                <button type="submit">Excluir</button>
                             </form>
                         </td>
                     </tr>

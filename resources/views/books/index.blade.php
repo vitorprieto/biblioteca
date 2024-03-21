@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Books') }}
+            {{ __('Livros') }}
         </h2>
 
     </x-slot>
@@ -12,14 +12,12 @@
                 <table class="min-w-full">
                     <thead class="bg-gray-800 border-b">
                         <tr>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Name</th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Author</th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Publication
-                                Date</th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Category
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Edit</th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Delete</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Nome</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Autor</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Data de Publicação</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Categoria</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Editar</th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-center text-white">Excluir</th>
                         </tr>
                     </thead>
                     <tbody>

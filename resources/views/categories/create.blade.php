@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Create a new category') }}
+            {{ __('Criação de nova Categoria') }}
         </h2>
         <style>
             input[type=text],
@@ -44,10 +44,10 @@
                 <div class="create">
                     <form method="POST" action=" {{ route('categories.store') }}">
                         @csrf
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Name..">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Nome...">
 
-                        <label for="name">Description</label>
+                        <label for="name">Descrição</label>
                         <input type="text" id="description" name="description" placeholder="Author..">
 
                         <input type="submit" value="Submit">

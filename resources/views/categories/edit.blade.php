@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Edit a category') }}
+            {{ __('Editar a Categoria') }}
         </h2>
         <style>
             input[type=text],
@@ -46,10 +46,10 @@
                         @csrf
                         @method('PATCH')
 
-                        <label for="name">Name</label>
+                        <label for="name">Nome</label>
                         <input type="text" id="name" name="name" value='{{ $category->name }}'>
 
-                        <label for="name">Description</label>
+                        <label for="name">Descrição</label>
                         <input type="text" id="description" name="description" value='{{ $category->description }}'>
 
                         <input type="submit" value="Submit">

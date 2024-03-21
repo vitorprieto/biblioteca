@@ -45,14 +45,14 @@
                     <form method="POST" action=" {{ route('bookinstances.store') }}">
                         @csrf
 
-                        <label for="books">Books</label>
+                        <label for="books">Livros</label>
                         <select id="books" name="books">
                             @foreach ($books as $book)
                                 <option value={{ $book->id }}>{{ $book->name }}</option>
                             @endforeach
                         </select>
 
-                        <label for="users">Borrower</label>
+                        <label for="users">Mutuário</label>
                         <select id="users" name="users">
                             @foreach ($users as $user)
                                 <option value={{ $user->id }}>{{ $user->name }}</option>
@@ -60,10 +60,10 @@
                         </select>
 
                         <input type="hidden" name="is_available" value="0">
-                        <label for="name">Availability</label>
+                        <label for="name">Disponibilidade</label>
                         <input type="checkbox" id="is_available" name="is_available" value="1" checked> <br>
 
-                        <label for="name">Due Back Date:</label>
+                        <label for="name">Data de vencimento:</label>
                         <input type="date" id="due_back" name="due_back"> <br>
 
                         <input type="submit" value="Submit">

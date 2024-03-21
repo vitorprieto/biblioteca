@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Book') }}
+            {{ __('Livro') }}
         </h2>
         <style>
             #books {
@@ -39,12 +39,12 @@
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <table id="books">
                     <tr>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Publication Date</th>
-                        <th>Category</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Nome</th>
+                        <th>Autor</th>
+                        <th>Data de Publicação</th>
+                        <th>Categoria</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
                     <tr>
                         <td>{{ $book->name }}</td>
@@ -52,13 +52,13 @@
                         <td>{{ $book->publication_date }}</td>
                         <td>{{ $book->category->name }}</td>
 
-                        <td><a href="{{ url('books/' . $book->id . '/edit') }}">Edit</a></td>
+                        <td><a href="{{ url('books/' . $book->id . '/edit') }}">Editar</a></td>
                         <td>
                             <form action="{{ route('books.destroy', ['book' => $book]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit">Delete</button>
+                                <button type="submit">Excluir</button>
                             </form>
                         </td>
                     </tr>
@@ -76,28 +76,28 @@
 
                 <table id="books">
                     <tr>
-                        <th>Book</th>
-                        <th>Borrower</th>
-                        <th>Due Back Date</th>
+                        <th>Livro</th>
+                        <th>Mutuário</th>
+                        <th>Data de Vencimento</th>
                         <th>Availability</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
                     @foreach ($book->book_instances as $instance)
                         <tr>
                             <td>{{ $instance->book->name }}</td>
                             <td>{{ $instance->borrower->name }}</td>
                             <td>{{ $instance->due_back }}</td>
-                            <td>{{ $instance->is_available ? 'Available' : 'Not Available' }}</td>
+                            <td>{{ $instance->is_available ? 'Disponível' : 'Indisponível' }}</td>
 
-                            <td><a href="{{ url('bookinstances/' . $instance->id . '/edit') }}">Edit</a></td>
+                            <td><a href="{{ url('bookinstances/' . $instance->id . '/edit') }}">Editar</a></td>
                             <td>
                                 <form action="{{ route('bookinstances.destroy', ['bookinstance' => $instance]) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit">Delete</button>
+                                    <button type="submit">Excluir</button>
                                 </form>
                             </td>
                         </tr>

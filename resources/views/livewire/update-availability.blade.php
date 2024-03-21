@@ -1,11 +1,11 @@
 <div class='update-availability'>
     <x-jet-confirmation-modal wire:model="confirmChange">
         <x-slot name="title">
-            Change Availability
+            Alterar disponibilidade
         </x-slot>
 
         <x-slot name="content">
-            Are you sure?
+            Tem certeza?
         </x-slot>
 
         <x-slot name="footer">

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Edit a book') }}
+            {{ __('Editar Livro') }}
         </h2>
         <style>
             input[type=text],
@@ -45,17 +45,17 @@
                         @csrf
                         @method('PATCH')
 
-                        <label for="name">Name</label>
+                        <label for="name">Nome</label>
                         <input type="text" id="name" name="name" value='{{ $book->name }}'>
 
-                        <label for="name">Author</label>
+                        <label for="name">Autor</label>
                         <input type="text" id="author" name="author" value='{{ $book->author }}'>
 
-                        <label for="name">Publication Date</label>
+                        <label for="name">Data de Publicação</label>
                         <input type="date" id="publication_date" name="publication_date"
                             value='{{ $book->publication_date }}'><br>
 
-                        <label for="category">Category</label>
+                        <label for="category">Categoria</label>
                         <select id="category" name="category_id">
                             @foreach ($categories as $category)
                                 @if ($book->category->id == $category->id)

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Edit a book copy') }}
+            {{ __('Editar uma cópia do livro') }}
         </h2>
         <style>
             input[type=text],
@@ -46,7 +46,7 @@
                         @csrf
                         @method('PATCH')
 
-                        <label for="books">Books</label>
+                        <label for="books">Livros</label>
                         <select id="books" name="books">
                             @foreach ($books as $book)
                                 @if ($book_instance->book->id == $book->id)
@@ -56,7 +56,7 @@
                             @endforeach
                         </select>
 
-                        <label for="users">Borrower</label>
+                        <label for="users">Mutuário</label>
                         <select id="users" name="users">
                             @foreach ($users as $user)
                                 @if ($book_instance->borrower->id == $user->id)
@@ -67,11 +67,11 @@
                         </select>
 
                         <input type="hidden" name="is_available" value="0">
-                        <label for="name">Availability</label>
+                        <label for="name">Disponibilidade</label>
                         <input type="checkbox" id="is_available" name="is_available"
                             {{ $book_instance->is_available ? 'checked' : '' }}> <br>
 
-                        <label for="name">Due Back Date:</label>
+                        <label for="name">Data de vencimento:</label>
                         <input type="date" id="due_back" name="due_back" value='{{ $book_instance->due_back }}'>
                         <br>
 

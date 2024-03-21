@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Book Copies') }}
+            {{ __('Cópias de livros') }}
         </h2>
         <style>
             #books {
@@ -39,17 +39,17 @@
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
 
                 @if (count($book_instances) <= 0)
-                    <p>No records found</p>
+                    <p>Nenhum registro foi encontrado</p>
                 @endif
 
                 <table id="books">
                     <tr>
-                        <th>Book</th>
-                        <th>Borrower</th>
-                        <th>Due Back Date</th>
-                        <th>Availability</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Livro</th>
+                        <th>Mutuári</th>
+                        <th>Data de vencimento</th>
+                        <th>Disponibilidade</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
                     @foreach ($book_instances as $instance)
                         <tr>

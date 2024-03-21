@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Create a new book') }}
+            {{ __('Adicionar novo Livro') }}
         </h2>
         <style>
             input[type=text],
@@ -44,16 +44,16 @@
                 <div class="create">
                     <form method="POST" action=" {{ route('books.store') }}">
                         @csrf
-                        <label for="name">Name</label>
+                        <label for="name">Nome</label>
                         <input type="text" id="name" name="name" placeholder="Name..">
 
                         <label for="name">Author</label>
                         <input type="text" id="author" name="author" placeholder="Author..">
 
-                        <label for="name">Publication Date</label>
+                        <label for="name">Data de Publicação</label>
                         <input type="date" id="publication_date" name="publication_date"><br>
 
-                        <label for="category">Category</label>
+                        <label for="category">Categoria</label>
                         <select id="category" name="category">
                             @foreach ($categories as $category)
                                 <option value={{ $category->id }}>{{ $category->name }}</option>

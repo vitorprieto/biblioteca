@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Categories') }}
+            {{ __('Categorias') }}
         </h2>
         <style>
             #categories {
@@ -41,10 +41,10 @@
 
                 <table id="categories">
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
                     @foreach ($categories as $category)
                         <tr>
