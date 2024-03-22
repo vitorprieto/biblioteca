@@ -22,7 +22,7 @@ Se acontecer erro ao instalar faz o update do composer do projeto
 
 	composer update
 
-Renomear o arquivo ".env.example" para ".env" and adiciona os parâmetros do seu database.
+No arquivo ".env" and adiciona os parâmetros do seu database.
     
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
